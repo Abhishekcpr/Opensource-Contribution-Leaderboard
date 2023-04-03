@@ -18,7 +18,7 @@ function refreshTable(newData) {
         })
     })
 
-    // reder total contributor numbers
+    // render total contributor numbers
     const totalNumbers = list.length
     const totalEm = document.querySelector('.total')
     totalEm.innerText = 'Total: ' + totalNumbers
@@ -69,7 +69,8 @@ function refreshTable(newData) {
     var allOpenPRs = 0
     var allMergedPRs = 0
     var allIssues = 0
-    contributors.forEach((contributor, index) => {
+    var rankCounter = 1
+    contributors.forEach((contributor) => {
         const tr = document.createElement('tr')
 
         // avatar
@@ -87,7 +88,7 @@ function refreshTable(newData) {
         const rank = document.createElement('span')
         username.href = data[contributor.username].home
         username.innerText = contributor.username
-        rank.innerText = index + 1
+        rank.innerText = rankCounter++ 
         tr.id = contributor.username
         tdUsername.appendChild(username)
         tdUsername.appendChild(rank)
